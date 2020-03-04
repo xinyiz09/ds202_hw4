@@ -65,17 +65,17 @@ summary(mostWeight)
 summary(leastWeight)
 ```
 
-Chick 35 gained the most weight with diet 2 and chick 24 gained least weight with diet 3.
-
 ```{r}
 dat2$new <- ifelse(dat2$weightgain == max(dat2$weightgain), "max", "other")
 dat2$new[dat2$weightgain == min(dat2$weightgain)] <- 'min'
 dat2
-mycolor <- c("max" = "red", "min" = "purple", "other" = "grey50")
-ggplot(dat2, aes(x=Diet, y=weightgain, color=new)) + scale_color_manual("Status", values = mycolor) + geom_jitter(width=0.1) + ylim(0, 350) + xlab("Diet number")
-
+colors <-c("max" = "orange", "min" = "purple", "other" = "grey")
+ggplot(dat2, aes(x=Diet, y= weightgain, color=new)) +scale_color_manual("Status", values = colors) + geom_jitter(width = 0.1) + ylim(0,350) +xlab("diet number")
 
 ```
+
+
+Chick 35 gained the most weight with diet 2 and chick 24 gained least weight with diet 3.
 
 6. For the chicks with the least and the most weight at time 0, plot their growth trajectories over time. </br>
 
